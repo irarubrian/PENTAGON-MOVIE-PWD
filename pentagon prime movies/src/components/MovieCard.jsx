@@ -8,8 +8,9 @@ function MovieCard({ movie }) {
   };
 
   return (
-    <div onClick={handleCardClick}>
-      {showDetails ? (// Show details if showDetails is true
+      <div onClick={handleCardClick}>
+
+        {showDetails ? (// Show details if showDetails is true
         <div>
           <h2>{movie.Title}</h2>
           <img src={movie.Poster} alt={movie.Title} />
@@ -18,6 +19,7 @@ function MovieCard({ movie }) {
           <p><strong>Director:</strong> {movie.Director}</p>
           <p>{movie.Plot}</p>
           <button onClick={() => setShowDetails(false)}>Back to List</button>
+          
         </div>
       ) : (// Show basic view if showDetails is false
         <div>
