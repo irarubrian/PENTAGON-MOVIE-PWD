@@ -6,9 +6,9 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  height: 100%; 
-  display: grid; 
-  place-items: center; 
+  height: 100%;
+  display: grid;
+  place-items: center;
 }
 
 a {
@@ -22,12 +22,15 @@ a:hover {
 
 /* Navbar Styles */
 nav {
-  background-color: #1c1c1c;
+  background-color: #000000;
   padding: 1rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+
+
 }
 
 nav a {
@@ -39,15 +42,18 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #333333;
+  background-color: #000000;
 }
+
+body {
+  padding-top: 70px; }
 
 /* Home Page Styles */
 h1 {
   text-align: center;
   font-size: 2.5rem;
   margin-top: 2rem;
-  color: #ff6f61;
+  color: #ff1500;
 }
 
 p {
@@ -71,6 +77,27 @@ button {
 
 button:hover {
   background-color: #e65a50;
+}
+
+.home-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+}
+
+.Browse:hover {
+  background-color: #fa1302;
+
+}
+.Learn:hover{
+  background-color: #fa1302;
+}
+
+.intro{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 /* About Page Styles */
@@ -214,4 +241,26 @@ p.loading {
   text-align: center;
   font-size: 1.2rem;
   margin: 2rem 0;
+}
+
+.movie-card{
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+
+
+.movie-card{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+
+.movie-card {
+    padding: 3rem 6rem;
+
+}
+.movie-card{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 8px;
 }
