@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar({ darkMode, enableDarkMode, enableLightMode }) {
+function Navbar({ darkMode, toggleDarkMode }) {
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${darkMode ? "dark" : ""}`}>
       <div className="nav-links">
         <Link to="/" className="nav-link">Home</Link>
         <Link to="/movies" className="nav-link">Movies</Link>
@@ -11,11 +11,9 @@ function Navbar({ darkMode, enableDarkMode, enableLightMode }) {
         <Link to="/about" className="nav-link">About</Link>
       </div>
       <div className="dark-mode-buttons">
-        {!darkMode ? (
-          <button className="dark-mode-btn" onClick={enableDarkMode}>Dark Mode</button>
-        ) : (
-          <button className="light-mode-btn" onClick={enableLightMode}>Light Mode</button>
-        )}
+        <button className="dark-mode-btn" onClick={toggleDarkMode}>
+          {darkMode ? "Light Mode" : "Dark Mode"}
+        </button>
       </div>
     </nav>
   );

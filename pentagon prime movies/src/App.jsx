@@ -1,49 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./components/NavBar"; 
+import Navbar from "./components/NavBar";
 import Home from "./components/Home";
-import Movies from "./components/Movie"; 
+import Movies from "./components/Movie";
 import AddMovie from "./components/AddMovie";
 import About from "./components/About";
-import Footer from "./components/Footer"; 
+import Footer from "./components/Footer";
+import "./App.css"; // Import App.css
 
 function App() {
-  // Load dark mode state from localStorage
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("darkMode") === "true";
+    const storedMode = localStorage.getItem("darkMode");
+    return storedMode ? JSON.parse(storedMode) : false;
   });
 
-  // Function to enable Dark Mode
-  const enableDarkMode = () => {
-    setDarkMode(true);
-    localStorage.setItem("darkMode", "true");
-  };
-
-  // Function to enable Light Mode
-  const enableLightMode = () => {
-    setDarkMode(false);
-    localStorage.setItem("darkMode", "false");
-  };
-
-  // Apply dark mode class to body when state changes
   useEffect(() => {
+    console.log("Dark Mode Active:", darkMode);
     if (darkMode) {
       document.body.classList.add("dark-mode");
     } else {
       document.body.classList.remove("dark-mode");
     }
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    console.log("Toggling Dark Mode...");
+    setDarkMode((prevMode) => !prevMode);
+  };
 
   return (
     <Router>
-      <Navbar darkMode={darkMode} enableDarkMode={enableDarkMode} enableLightMode={enableLightMode} />
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} /> {/* ✅ Fixed import reference */}
+        <Route path="/movies" element={<Movies />} />
         <Route path="/add-movie" element={<AddMovie />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      <Footer /> {/* ✅ Footer at the bottom */}
+      <Footer />
     </Router>
   );
 }
