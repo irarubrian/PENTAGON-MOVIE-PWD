@@ -1,14 +1,22 @@
-//lennox
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ darkMode, enableDarkMode, enableLightMode }) {
   return (
-    <nav>
-      <Link to="/" className='Home'>Home</Link>
-      <Link to="/movies" className="Movies">Movies</Link>
-      <Link to="/add-movie" className="Add Movie">Add Movie</Link>
-      <Link to="/about" className="About">About</Link>
+    <nav className="navbar">
+      <div className="nav-links">
+        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/movies" className="nav-link">Movies</Link>
+        <Link to="/add-movie" className="nav-link">Add Movie</Link>
+        <Link to="/about" className="nav-link">About</Link>
+      </div>
+      <div className="dark-mode-buttons">
+        {!darkMode ? (
+          <button className="dark-mode-btn" onClick={enableDarkMode}>Dark Mode</button>
+        ) : (
+          <button className="light-mode-btn" onClick={enableLightMode}>Light Mode</button>
+        )}
+      </div>
     </nav>
   );
 }
